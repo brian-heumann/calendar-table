@@ -19,21 +19,17 @@ month_names = ["january", "february", "march", "april", "may", "june",
 def get_weekday(isoweekday: int) -> str:
     return weekday_names[isoweekday-1]
 
-
 def get_monthname(month: int) -> str:
     return month_names[month - 1]
 
-
 def get_quarter(month: int) -> int:
     return int(month/3) + 1
-
 
 def is_weekday(isoweekday: int) -> int:
     if isoweekday < 6:
         return 1
     else:
         return 0
-
 
 def get_week_number(dt: date) -> int:
     return dt.isocalendar()[1]
