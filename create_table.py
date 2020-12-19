@@ -3,7 +3,7 @@ from dateutil.easter import easter
 import sqlite3
 
 connection = sqlite3.connect('db.sqlite')
-cursor = connection.cursor()
+# cursor = connection.cursor()
 
 # Constants
 #
@@ -63,8 +63,8 @@ for i in range(day_num):
         isWeekday=is_weekday(d.isoweekday()),
         isHoliday=0
     )
-    # print(sql_insert_statement)
-    # cursor.execute(sql_insert_statement)
+    print(sql_insert_statement)
+    cursor.execute(sql_insert_statement)
 
 # connection.commit()
 
@@ -73,15 +73,14 @@ def update_holiday_date(dt: datetime, name: str):
     sql_update_statement = '''
         UPDATE 'calendar_table' 
         SET     isHoliday = 1, 
-                holidayName = '{holidayName}'
-        WHERE   dt = {date}
+                holidayName = '{name}'
+        WHERE   dt = '{date}'
     '''.format(
         date=str(dt),
-        holidayName=name
+        name=name
     )
     print(sql_update_statement)
-    res = cursor.execute(sql_update_statement)
-    print(res.fetchone())
+    connection.execute(sql_update_statement)
 
 
 # Determine easter for each year in [start_date, end_date]
