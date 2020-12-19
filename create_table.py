@@ -60,9 +60,8 @@ for i in range(day_num):
         isHoliday=0
     )
     print(sql_insert_statement)
-    cursor.execute(sql_insert_statement)
+    connection.execute(sql_insert_statement)
 
-# connection.commit()
 
 
 def update_holiday_date(dt: datetime, name: str):
