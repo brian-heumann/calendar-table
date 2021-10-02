@@ -22,7 +22,7 @@ def main(database, start, end):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Generates a calendar table with holidays")
+    parser = argparse.ArgumentParser(description="Generate a sqlite database with a calendar table")
     parser.add_argument('--database', required=True,  help='name for generated sqlite database file')
     parser.add_argument('--start', required=True,  help='start date of the calendar table')
     parser.add_argument('--end', required=True, help='end date of the calendar table')
