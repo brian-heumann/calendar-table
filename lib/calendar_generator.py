@@ -34,7 +34,6 @@ class CalendarGenerator:
             isHoliday BINARY(1) NULL,
             holidayDesc VARCHAR(32) NULL
         )"""
-        print(create_statement)
         self.connection.execute(create_statement)
 
     def populate_defaults(self):
@@ -68,7 +67,6 @@ class CalendarGenerator:
                 isWeekDay=(1 if dt.isoweekday() < 6 else 0),
                 isHoliday=0
             )
-            print(insert_statement)
             self.connection.execute(insert_statement)
 
     def populate_holidays(self):
@@ -120,5 +118,4 @@ class CalendarGenerator:
             date=str(dt),
             name=name
         )
-        print(update_statement)
         self.connection.execute(update_statement)
