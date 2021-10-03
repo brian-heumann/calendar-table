@@ -59,7 +59,7 @@ class TestCalendarGenerator(TestCase):
         # act
         calendar.populate_holidays()
         # assert
-        self.assertEquals(mock_connection.execute.call_count, 13)
+        self.assertEquals(mock_connection.execute.call_count, 14)
 
 
 if __name__ == '__main__':
