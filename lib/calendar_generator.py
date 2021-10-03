@@ -32,7 +32,7 @@ class CalendarGenerator:
             weekNumber tinyint NULL,
             isWeekday BINARY(1) NULL,
             isHoliday BINARY(1) NULL,
-            holidayDesc VARCHAR(32) NULL
+            holidayName VARCHAR(32) NULL
         )"""
         self.connection.execute(create_statement)
 
@@ -75,6 +75,10 @@ class CalendarGenerator:
         for i in range(years):
             d = self.start + timedelta(days=(i * 365))
 
+            # New years
+            new_years = date(d.year, 1, 1)
+            self.update_holiday_date(new_years, "new years")
+
             # Easter related holidays
             easter_sunday = easter(d.year)
             ash_wednesday = easter_sunday - timedelta(days=46)
@@ -107,6 +111,8 @@ class CalendarGenerator:
             self.update_holiday_date(christmas_eve, "christmas eve")
             self.update_holiday_date(christmas_day, "christmas day")
             self.update_holiday_date(boxing_day, "christmas 2. day")
+
+
 
     def update_holiday_date(self, dt: date, name: str):
         update_statement = '''

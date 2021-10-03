@@ -6,7 +6,7 @@ from unittest.mock import Mock
 from lib.calendar_generator import CalendarGenerator
 
 
-class TestCalendar(TestCase):
+class TestCalendarGenerator(TestCase):
     def test_has_start_and_end_dates(self):
         # arrange
         start = date(2020, 1, 1)

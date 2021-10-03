@@ -17,6 +17,9 @@ def main(database, start, end):
     calendar_generator.populate_defaults()
     print("Populating the holidays ...")
     calendar_generator.populate_holidays()
+
+    cursor.close()
+    connection.commit()
     connection.close()
     print("Done")
 
