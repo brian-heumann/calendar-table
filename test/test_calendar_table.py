@@ -54,7 +54,9 @@ class TestCalendarTable(TestCase):
     def test_maundy_thursday(self):
         # arrange
         maundy_thursdays = [
-            date(2022, 4, 14)
+            date(2022, 4, 14),
+            date(2025, 4, 17),
+
         ]
 
         # act // assert
@@ -67,8 +69,7 @@ class TestCalendarTable(TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         # clean up
-       # cls._connection.close
-        pass
+        cls._connection.close()
 
 
 if __name__ == '__main__':
